@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>properties-app-backend</name>
+    </assembly>
+    <members>
+        <member name="T:properties_app_backend.Controllers.OwnersController">
+            <summary>
+            Controller for managing property owners
+            </summary>
+        </member>
+        <member name="M:properties_app_backend.Controllers.OwnersController.GetAll">
+            <summary>
+            Get all property owners
+            </summary>
+            <returns>List of all owners</returns>
+            <response code="200">Returns the list of owners</response>
+        </member>
+        <member name="M:properties_app_backend.Controllers.OwnersController.GetById(System.String)">
+            <summary>
+            Get a specific owner by ID
+            </summary>
+            <param name="id">The owner's unique identifier</param>
+            <returns>The owner details</returns>
+            <response code="200">Returns the owner</response>
+            <response code="404">If the owner is not found</response>
+        </member>
+        <member name="M:properties_app_backend.Controllers.OwnersController.Create(properties_app_backend.Models.OwnerDto)">
+            <summary>
+            Create a new property owner
+            </summary>
+            <param name="ownerDto">The owner data to create</param>
+            <returns>The created owner</returns>
+            <response code="201">Returns the newly created owner</response>
+            <response code="400">If the owner data is invalid</response>
+        </member>
+        <member name="M:properties_app_backend.Controllers.OwnersController.Update(System.String,properties_app_backend.Models.OwnerDto)">
+            <summary>
+            Update an existing property owner
+            </summary>
+            <param name="id">The owner's unique identifier</param>
+            <param name="ownerDto">The updated owner data</param>
+            <returns>The updated owner</returns>
+            <response code="200">Returns the updated owner</response>
+            <response code="400">If the owner data is invalid</response>
+            <response code="404">If the owner is not found</response>
+        </member>
+        <member name="M:properties_app_backend.Controllers.OwnersController.Delete(System.String)">
+            <summary>
+            Delete a property owner
+            </summary>
+            <param name="id">The owner's unique identifier</param>
+            <returns>No content if successful</returns>
+            <response code="204">Owner successfully deleted</response>
+            <response code="404">If the owner is not found</response>
+        </member>
+        <member name="T:properties_app_backend.Controllers.PropertiesController">
+            <summary>
+            Controller for managing properties with image support via GridFS
+            </summary>
+        </member>
+        <member name="M:properties_app_backend.Controllers.PropertiesController.GetAll">
+            <summary>
+            Get all properties
+            </summary>
+            <returns>List of all properties</returns>
+            <response code="200">Returns the list of properties</response>
+        </member>
+        <member name="M:properties_app_backend.Controllers.PropertiesController.GetById(System.String)">
+            <summary>
+            Get a specific property by ID
+            </summary>
+            <param name="id">The property's unique identifier</param>
+            <returns>The property details</returns>
+            <response code="200">Returns the property</response>
+            <response code="404">If the property is not found</response>
+        </member>
+        <member name="M:properties_app_backend.Controllers.PropertiesController.Create(properties_app_backend.Models.PropertyDto,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Create a new property with optional image
+            </summary>
+            <param name="propertyDto">The property data to create</param>
+            <param name="image">Optional image file (JPEG, PNG, WebP, max 5MB)</param>
+            <returns>The created property</returns>
+            <response code="201">Returns the newly created property</response>
+            <response code="400">If the property data or image is invalid</response>
+            <response code="500">If there's an error uploading the image</response>
+        </member>
+        <member name="M:properties_app_backend.Controllers.PropertiesController.Update(System.String,properties_app_backend.Models.PropertyDto,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Update an existing property with optional image replacement
+            </summary>
+            <param name="id">The property's unique identifier</param>
+            <param name="propertyDto">The updated property data</param>
+            <param name="image">Optional new image file (JPEG, PNG, WebP, max 5MB). If provided, replaces existing image.</param>
+            <returns>The updated property</returns>
+            <response code="200">Returns the updated property</response>
+            <response code="400">If the property data or image is invalid</response>
+            <response code="404">If the property is not found</response>
+            <response code="500">If there's an error uploading the image</response>
+        </member>
+        <member name="M:properties_app_backend.Controllers.PropertiesController.Delete(System.String)">
+            <summary>
+            Delete a property and its associated image
+            </summary>
+            <param name="id">The property's unique identifier</param>
+            <returns>No content if successful</returns>
+            <response code="204">Property and image successfully deleted</response>
+            <response code="400">If there's an error deleting the property</response>
+            <response code="404">If the property is not found</response>
+        </member>
+    </members>
+</doc>
