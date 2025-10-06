@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # MongoDB Service
+  mongodb:
+    image: mongo:7.0
+    container_name: properties-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=PropertiesApp
+    command: --replSet rs0 --bind_ip_all
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - properties-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  properties-network:
+    driver: bridge

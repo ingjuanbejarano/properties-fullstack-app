@@ -384,9 +384,9 @@ appsettings.Local.json
 appsettings.*.Local.json
 
 # Docker
-.dockerignore
-Dockerfile*
-docker-compose*
+# .dockerignore
+# Dockerfile*
+# docker-compose*
 .env
 
 # Logs
