@@ -14,6 +14,11 @@ A modern property management application built with .NET 9.0 and Next.js. This f
 
 Before running this application, ensure you have the following installed:
 
+> ⚠️ **IMPORTANT**: Make sure your local project path **does NOT contain spaces or special characters** (such as accents, ñ, symbols, etc.). This can cause crashes with Turbopack, Docker, npm, and other development tools.
+> 
+> ✅ **Recommended paths**: `C:\dev\properties-app` or `C:\projects\properties-app`  
+> ❌ **Avoid paths like**: `C:\My Project\properties-app` or `C:\José's Projects\properties-app`
+
 ### Required Software
 
 - **Docker Desktop** (latest version)
