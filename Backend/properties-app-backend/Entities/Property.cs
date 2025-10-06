@@ -12,9 +12,8 @@ namespace properties_app_backend.Entities
 
 		[Required]
 		[BsonElement("idOwner")]
-		public string IdOwner { get; set; } = string.Empty;
-
 		// Navigation property for Owner
+		public string IdOwner { get; set; } = string.Empty;
 		[BsonIgnore]
 		public virtual Owner? Owner { get; set; }
 

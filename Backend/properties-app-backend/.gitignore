@@ -389,9 +389,6 @@ Dockerfile*
 docker-compose*
 .env
 
-# MongoDB
-data/
-
 # Logs
 logs/
 *.log

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using properties_app_backend.Data;
+using properties_app_backend.Context;
 using properties_app_backend.Repositories;
 using MongoDB.Driver;
 using Microsoft.OpenApi.Models;
