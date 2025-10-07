@@ -61,7 +61,7 @@ git clone <repository-url>
 cd Properties-app
 ```
 
-### 2. Start the Database
+### 2. Start the local Database (optional, database connected via MongoDB Atlas Cluster)
 
 ```bash
 cd Backend/properties-app-backend
@@ -73,7 +73,19 @@ docker-compose up -d mongodb
 docker exec -it properties-mongodb mongosh --eval "rs.initiate({_id: 'rs0', members: [{_id: 0, host: 'localhost:27017'}]})"
 ```
 
-### 3. Start the Backend API
+### 3. Configure Database Connection (if using local MongoDB)
+
+If you want to use the local MongoDB container instead of the cloud database, update the connection string in `appsettings.json`:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "mongodb://localhost:27017/PropertiesApp"
+  }
+}
+```
+
+### 4. Start the Backend API
 
 ```bash
 # From Backend/properties-app-backend directory
@@ -83,7 +95,7 @@ dotnet run
 
 The API will be available at: `http://localhost:5007`
 
-### 4. Configure Frontend Environment
+### 5. Configure Frontend Environment
 
 ```bash
 cd propertiesfrontend
@@ -99,7 +111,7 @@ Or create the file manually:
 NEXT_PUBLIC_API_URL=http://localhost:5007/api
 ```
 
-### 5. Start the Frontend
+### 6. Start the Frontend
 
 ```bash
 cd propertiesfrontend
@@ -120,7 +132,7 @@ Properties-app/
 ├── Backend/
 │   └── properties-app-backend/     # .NET 9.0 Web API
 │       ├── Controllers/            # API controllers
-│       ├── Data/                   # Entity Framework context
+│       ├── Context/                   # Entity Framework context
 │       ├── Entities/               # Data models
 │       ├── Models/                 # DTOs
 │       ├── Repositories/           # Data access layer
